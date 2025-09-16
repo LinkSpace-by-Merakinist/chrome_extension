@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Link Space</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="popup">
+    <div class="header">
+      <div class="brand"><img class="logo" src="assets/Linkspace Logo.svg" alt="" width="16" height="16" /><h1 class="title">Link Space</h1></div>
+      <div class="row" style="gap:10px;">
+        <a id="importLink" href="#">Import</a>
+        <a id="optionsLink" href="#">Settings</a>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 10px;">
+      <input id="projectName" type="text" placeholder="New project name (e.g. Work, Research)" />
+      <button id="saveBtn">Save Tabs</button>
+    </div>
+    <div class="provider">Storage: <span id="providerLabel">Local</span></div>
+    <div class="divider"></div>
+    <div class="meta">Projects</div>
+    <ul id="projects" class="list"></ul>
+    <div id="empty" class="empty" style="display:none;">No projects yet. Create one above.</div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+  </html>

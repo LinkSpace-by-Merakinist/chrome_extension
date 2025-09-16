@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Link Space Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="options">
+    <div class="header" style="margin-bottom: 18px;">
+      <div class="brand"><img class="logo" src="assets/Linkspace Logo.svg" alt="" width="16" height="16" /><h1 class="title">Link Space Settings</h1></div>
+      <div class="row" style="gap:6px;">
+        <button id="themeToggle" class="secondary" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+
+    <div class="card stack">
+      <label>Storage</label>
+      <div class="meta">Local (Chrome storage). Your projects stay on this device.</div>
+    </div>
+
+    <div class="section-title">Bookmarks Bridge</div>
+    <div class="card stack">
+      <div class="meta">Import/export projects as Chrome bookmarks. Exports are saved to Other Bookmarks → “Link Space”.</div>
+      <div class="row">
+        <button id="bmImport" class="secondary">Import from Bookmarks</button>
+        <button id="bmExportAll">Export All to Bookmarks</button>
+      </div>
+      <div id="bmStatus" class="meta"></div>
+    </div>
+
+    <div class="section-title">Projects</div>
+    <div class="card stack">
+      <div class="meta">Manage saved projects. Export or delete from here.</div>
+      <ul id="projList" class="list"></ul>
+      <div id="projEmpty" class="meta">No projects yet.</div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+  </html>

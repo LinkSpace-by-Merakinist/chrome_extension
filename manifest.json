@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Link Space",
+  "short_name": "Link Space",
+  "version": "0.1.0",
+  "description": "Save and restore tab collections (projects) locally, Google Drive, or OneDrive.",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data:"
+  },
+  "action": {
+    "default_title": "Link Space",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/Linkspace Logo48.png",
+      "32": "assets/Linkspace Logo48.png"
+    }
+  },
+  "icons": {
+    "48": "assets/Linkspace Logo48.png",
+    "128": "assets/Linkspace Logo128.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "bookmarks"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "save_current_window": {
+      "suggested_key": { "default": "Alt+S" },
+      "description": "Save all tabs in current window to a new Linkspace project"
+    }
+  }
+}
