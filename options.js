@@ -191,10 +191,26 @@ function effectiveScheme() {
   return mq.matches ? 'dark' : 'light';
 }
 
+function setBrandLogo(theme) {
+  const img = document.querySelector('.brand img.logo');
+  if (!img) return;
+  const eff = theme === 'system' ? effectiveScheme() : theme;
+  const base = 'assets/Linkspace Logo48';
+  const nextSrc = eff === 'dark' ? `${base}white.png` : `${base}.png`;
+  if (img.getAttribute('src') !== nextSrc) img.setAttribute('src', nextSrc);
+}
+
 async function initTheme() {
   const current = await getTheme();
   applyThemeAttr(current);
   updateThemeToggleIcon(current);
+  setBrandLogo(current);
+  // Update logo if system theme changes and our setting is 'system'
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  mq.addEventListener('change', async () => {
+    const t = await getTheme();
+    if (t === 'system') setBrandLogo('system');
+  });
 }
 
 function updateThemeToggleIcon(theme) {
@@ -211,4 +227,5 @@ async function toggleTheme() {
   await setTheme(next);
   applyThemeAttr(next);
   updateThemeToggleIcon(next);
+  setBrandLogo(next);
 }

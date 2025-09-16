@@ -11,13 +11,19 @@
     "default_title": "Link Space",
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "assets/Linkspace Logo48.png",
-      "32": "assets/Linkspace Logo48.png"
+      "16": "assets/Linkspace Logo24.png",
+      "24": "assets/Linkspace Logo24.png",
+      "32": "assets/Linkspace Logo64.png",
+      "48": "assets/Linkspace Logo48.png"
     }
   },
   "icons": {
+    "24": "assets/Linkspace Logo24.png",
     "48": "assets/Linkspace Logo48.png",
-    "128": "assets/Linkspace Logo128.png"
+    "64": "assets/Linkspace Logo64.png",
+    "128": "assets/Linkspace Logo128.png",
+    "250": "assets/Linkspace Logo250.png",
+    "500": "assets/Linkspace Logo500.png"
   },
   "permissions": [
     "tabs",

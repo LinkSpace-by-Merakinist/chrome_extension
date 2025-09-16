@@ -113,7 +113,26 @@ function effectiveScheme() {
   return mq.matches ? 'dark' : 'light';
 }
 
-async function initTheme() { const current = await getTheme(); applyThemeAttr(current); }
+function setBrandLogo(theme) {
+  const img = document.querySelector('.brand img.logo');
+  if (!img) return;
+  const eff = theme === 'system' ? effectiveScheme() : theme;
+  const base = 'assets/Linkspace Logo48';
+  const nextSrc = eff === 'dark' ? `${base}white.png` : `${base}.png`;
+  if (img.getAttribute('src') !== nextSrc) img.setAttribute('src', nextSrc);
+}
+
+async function initTheme() {
+  const current = await getTheme();
+  applyThemeAttr(current);
+  setBrandLogo(current);
+  // If user uses system theme, update on OS theme changes
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  mq.addEventListener('change', async () => {
+    const t = await getTheme();
+    if (t === 'system') setBrandLogo('system');
+  });
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
   $('#saveBtn').addEventListener('click', async () => {
